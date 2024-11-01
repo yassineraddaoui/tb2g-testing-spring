@@ -49,13 +49,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class JdbcPetRepositoryImpl implements PetRepository {
 
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    private SimpleJdbcInsert insertPet;
+    private final SimpleJdbcInsert insertPet;
 
-    private OwnerRepository ownerRepository;
+    private final OwnerRepository ownerRepository;
 
-    private VisitRepository visitRepository;
+    private final VisitRepository visitRepository;
 
 
     @Autowired

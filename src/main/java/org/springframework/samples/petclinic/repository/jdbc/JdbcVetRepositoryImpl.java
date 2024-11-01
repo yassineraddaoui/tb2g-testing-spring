@@ -45,7 +45,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class JdbcVetRepositoryImpl implements VetRepository {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
     public JdbcVetRepositoryImpl(JdbcTemplate jdbcTemplate) {

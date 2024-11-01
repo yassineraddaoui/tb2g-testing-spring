@@ -44,9 +44,9 @@ import java.util.Map;
 @Repository
 public class JdbcVisitRepositoryImpl implements VisitRepository {
 
-    private NamedParameterJdbcTemplate jdbcTemplate;
+    private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    private SimpleJdbcInsert insertVisit;
+    private final SimpleJdbcInsert insertVisit;
 
     @Autowired
     public JdbcVisitRepositoryImpl(DataSource dataSource) {
