@@ -8,19 +8,19 @@ import org.springframework.samples.petclinic.sfg.LaurelConfig;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 @ActiveProfiles("base-test")
 @SpringJUnitConfig(classes = {BaseConfig.class, LaurelConfig.class})
-class HearingInterpreterLaurelTest {
+class HearingInterpreterTest {
 
     @Autowired
     HearingInterpreter hearingInterpreter;
 
     @Test
-    void whatIheard() {
+    void whatIHeard() {
         String word = hearingInterpreter.whatIHeard();
-
         assertEquals("Laurel", word);
+
     }
 }

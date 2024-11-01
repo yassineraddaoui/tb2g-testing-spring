@@ -4,32 +4,31 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.samples.petclinic.sfg.HearingInterpreter;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-/**
- * Created by jt on 2019-02-18.
- */
-@ActiveProfiles("yanny")
-@SpringJUnitConfig(classes = HearingInterpreterActiveProfileTest.TestConfig.class)
-public class HearingInterpreterActiveProfileTest {
+@ActiveProfiles("component-scan")
+@SpringJUnitConfig(classes = {HearingInterpreterTestCS.TestConfig.class})
+class HearingInterpreterTestCS {
+    @Autowired
+    HearingInterpreter hearingInterpreter;
 
+    @Test
+    void whatIHeard() {
+        String word = hearingInterpreter.whatIHeard();
+        assertEquals("Laurel", word);
+    }
+
+    @Profile("component-scan")
     @Configuration
     @ComponentScan("org.springframework.samples.petclinic.sfg")
     static class TestConfig {
 
     }
 
-    @Autowired
-    HearingInterpreter hearingInterpreter;
 
-    @Test
-    void whatIheard() {
-        String word = hearingInterpreter.whatIHeard();
-
-        assertEquals("Yanny", word);
-    }
 }

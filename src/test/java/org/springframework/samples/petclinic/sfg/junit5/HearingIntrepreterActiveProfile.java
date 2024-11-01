@@ -8,28 +8,22 @@ import org.springframework.samples.petclinic.sfg.HearingInterpreter;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * Created by jt on 2019-02-18.
- */
+import static org.junit.Assert.assertEquals;
 @ActiveProfiles("yanny")
-@SpringJUnitConfig(classes = HearingInterpreterActiveProfileTest.TestConfig.class)
-public class HearingInterpreterActiveProfileTest {
-
+@SpringJUnitConfig(classes = {HearingIntrepreterActiveProfile.TestConfig.class})
+public class HearingIntrepreterActiveProfile {
     @Configuration
     @ComponentScan("org.springframework.samples.petclinic.sfg")
     static class TestConfig {
 
     }
-
     @Autowired
     HearingInterpreter hearingInterpreter;
 
     @Test
-    void whatIheard() {
+    void whatIHeard() {
         String word = hearingInterpreter.whatIHeard();
-
         assertEquals("Yanny", word);
     }
+
 }
